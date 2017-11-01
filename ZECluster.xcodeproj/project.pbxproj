@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3FC1171DD02416D113C4791D /* Pods_ZECluster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36082425F489885A5C1674F /* Pods_ZECluster.framework */; };
+		DBB5FAA01FAA3537003BD030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB5FA9F1FAA3537003BD030 /* AppDelegate.swift */; };
+		DBB5FAA21FAA3537003BD030 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB5FAA11FAA3537003BD030 /* ViewController.swift */; };
+		DBB5FAA51FAA3537003BD030 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB5FAA31FAA3537003BD030 /* Main.storyboard */; };
+		DBB5FAA71FAA3537003BD030 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB5FAA61FAA3537003BD030 /* Assets.xcassets */; };
+		DBB5FAAA1FAA3537003BD030 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB5FAA81FAA3537003BD030 /* LaunchScreen.storyboard */; };
+		DBB5FAB41FAA3730003BD030 /* ZEClusterMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB5FAB31FAA3730003BD030 /* ZEClusterMapView.swift */; };
+		DBB5FAB61FAA378C003BD030 /* ZEClusterMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB5FAB51FAA378C003BD030 /* ZEClusterMarker.swift */; };
+		DBB5FABA1FAA3E44003BD030 /* ZEClusterAlgoritm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB5FAB91FAA3E44003BD030 /* ZEClusterAlgoritm.swift */; };
+		DBB5FABC1FAA3F7A003BD030 /* ZEClusterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB5FABB1FAA3F7A003BD030 /* ZEClusterProtocols.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5B8B1FA175A0F43B2725A496 /* Pods-ZECluster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZECluster.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZECluster/Pods-ZECluster.release.xcconfig"; sourceTree = "<group>"; };
+		981F6B67F1E5FCEE211A8C87 /* Pods-ZECluster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZECluster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZECluster/Pods-ZECluster.debug.xcconfig"; sourceTree = "<group>"; };
+		C36082425F489885A5C1674F /* Pods_ZECluster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZECluster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBB5FA9C1FAA3537003BD030 /* ZECluster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZECluster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBB5FA9F1FAA3537003BD030 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DBB5FAA11FAA3537003BD030 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DBB5FAA41FAA3537003BD030 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DBB5FAA61FAA3537003BD030 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DBB5FAA91FAA3537003BD030 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DBB5FAAB1FAA3537003BD030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBB5FAB31FAA3730003BD030 /* ZEClusterMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZEClusterMapView.swift; sourceTree = "<group>"; };
+		DBB5FAB51FAA378C003BD030 /* ZEClusterMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZEClusterMarker.swift; sourceTree = "<group>"; };
+		DBB5FAB91FAA3E44003BD030 /* ZEClusterAlgoritm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZEClusterAlgoritm.swift; sourceTree = "<group>"; };
+		DBB5FABB1FAA3F7A003BD030 /* ZEClusterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZEClusterProtocols.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DBB5FA991FAA3537003BD030 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FC1171DD02416D113C4791D /* Pods_ZECluster.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		119207E9513931729F1A9362 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				981F6B67F1E5FCEE211A8C87 /* Pods-ZECluster.debug.xcconfig */,
+				5B8B1FA175A0F43B2725A496 /* Pods-ZECluster.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BF1C25C911DB2D4BE29DF624 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C36082425F489885A5C1674F /* Pods_ZECluster.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DBB5FA931FAA3537003BD030 = {
+			isa = PBXGroup;
+			children = (
+				DBB5FA9E1FAA3537003BD030 /* ZECluster */,
+				DBB5FA9D1FAA3537003BD030 /* Products */,
+				119207E9513931729F1A9362 /* Pods */,
+				BF1C25C911DB2D4BE29DF624 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DBB5FA9D1FAA3537003BD030 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DBB5FA9C1FAA3537003BD030 /* ZECluster.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DBB5FA9E1FAA3537003BD030 /* ZECluster */ = {
+			isa = PBXGroup;
+			children = (
+				DBB5FAB21FAA370F003BD030 /* classes */,
+				DBB5FA9F1FAA3537003BD030 /* AppDelegate.swift */,
+				DBB5FAA11FAA3537003BD030 /* ViewController.swift */,
+				DBB5FAA31FAA3537003BD030 /* Main.storyboard */,
+				DBB5FAA61FAA3537003BD030 /* Assets.xcassets */,
+				DBB5FAA81FAA3537003BD030 /* LaunchScreen.storyboard */,
+				DBB5FAAB1FAA3537003BD030 /* Info.plist */,
+			);
+			path = ZECluster;
+			sourceTree = "<group>";
+		};
+		DBB5FAB21FAA370F003BD030 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				DBB5FAB31FAA3730003BD030 /* ZEClusterMapView.swift */,
+				DBB5FAB51FAA378C003BD030 /* ZEClusterMarker.swift */,
+				DBB5FAB91FAA3E44003BD030 /* ZEClusterAlgoritm.swift */,
+				DBB5FABB1FAA3F7A003BD030 /* ZEClusterProtocols.swift */,
+			);
+			path = classes;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DBB5FA9B1FAA3537003BD030 /* ZECluster */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBB5FAAE1FAA3537003BD030 /* Build configuration list for PBXNativeTarget "ZECluster" */;
+			buildPhases = (
+				A3D4F498FE90F3D669D26626 /* [CP] Check Pods Manifest.lock */,
+				DBB5FA981FAA3537003BD030 /* Sources */,
+				DBB5FA991FAA3537003BD030 /* Frameworks */,
+				DBB5FA9A1FAA3537003BD030 /* Resources */,
+				0B4D54B1BBF5B2F3B34BF010 /* [CP] Embed Pods Frameworks */,
+				392AB7CF6196B91F27B7494D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZECluster;
+			productName = ZECluster;
+			productReference = DBB5FA9C1FAA3537003BD030 /* ZECluster.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DBB5FA941FAA3537003BD030 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Zhenya Zhornitsky";
+				TargetAttributes = {
+					DBB5FA9B1FAA3537003BD030 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = DBB5FA971FAA3537003BD030 /* Build configuration list for PBXProject "ZECluster" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DBB5FA931FAA3537003BD030;
+			productRefGroup = DBB5FA9D1FAA3537003BD030 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DBB5FA9B1FAA3537003BD030 /* ZECluster */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DBB5FA9A1FAA3537003BD030 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBB5FAAA1FAA3537003BD030 /* LaunchScreen.storyboard in Resources */,
+				DBB5FAA71FAA3537003BD030 /* Assets.xcassets in Resources */,
+				DBB5FAA51FAA3537003BD030 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B4D54B1BBF5B2F3B34BF010 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZECluster/Pods-ZECluster-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		392AB7CF6196B91F27B7494D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ZECluster/Pods-ZECluster-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZECluster/Pods-ZECluster-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3D4F498FE90F3D669D26626 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZECluster-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DBB5FA981FAA3537003BD030 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBB5FABC1FAA3F7A003BD030 /* ZEClusterProtocols.swift in Sources */,
+				DBB5FAA21FAA3537003BD030 /* ViewController.swift in Sources */,
+				DBB5FAB41FAA3730003BD030 /* ZEClusterMapView.swift in Sources */,
+				DBB5FABA1FAA3E44003BD030 /* ZEClusterAlgoritm.swift in Sources */,
+				DBB5FAA01FAA3537003BD030 /* AppDelegate.swift in Sources */,
+				DBB5FAB61FAA378C003BD030 /* ZEClusterMarker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DBB5FAA31FAA3537003BD030 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DBB5FAA41FAA3537003BD030 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DBB5FAA81FAA3537003BD030 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DBB5FAA91FAA3537003BD030 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DBB5FAAC1FAA3537003BD030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DBB5FAAD1FAA3537003BD030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DBB5FAAF1FAA3537003BD030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 981F6B67F1E5FCEE211A8C87 /* Pods-ZECluster.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ZECluster/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ze.ZECluster;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DBB5FAB01FAA3537003BD030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B8B1FA175A0F43B2725A496 /* Pods-ZECluster.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ZECluster/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ze.ZECluster;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DBB5FA971FAA3537003BD030 /* Build configuration list for PBXProject "ZECluster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBB5FAAC1FAA3537003BD030 /* Debug */,
+				DBB5FAAD1FAA3537003BD030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBB5FAAE1FAA3537003BD030 /* Build configuration list for PBXNativeTarget "ZECluster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBB5FAAF1FAA3537003BD030 /* Debug */,
+				DBB5FAB01FAA3537003BD030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DBB5FA941FAA3537003BD030 /* Project object */;
+}
