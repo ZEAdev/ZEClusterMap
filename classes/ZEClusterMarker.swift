@@ -11,4 +11,28 @@ import GoogleMaps
 
 class ZEClusterMarker: GMSMarker {
 
+    private(set) var markers = [GMSMarker]()
+    
+    func add(marker: GMSMarker) {
+        if !markers.contains(marker) {
+            markers.append(marker)
+        }
+    }
+    
+    func add(markers: [GMSMarker]) {
+        markers.forEach {self.add(marker: $0)}
+    }
+    
+    func remove(marker: GMSMarker) {
+        markers = markers.filter({$0 != marker})
+    }
+    
+    func remove(markers: [GMSMarker]) {
+        markers.forEach({ self.remove(marker: $0)})
+    }
+    
+    func dispose() {
+        markers.removeAll()
+    }
+    
 }

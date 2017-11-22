@@ -9,9 +9,6 @@
 import UIKit
 import GoogleMaps
 
-typealias markerTuple = (marker: GMSMarker, tag: String?)
-typealias clusteredMarkerLists = (markers: [GMSMarker], tag: String?)
-
 class ZEClusterMapView: GMSMapView {
     
     // getter for unclustered markers on the map
@@ -21,7 +18,12 @@ class ZEClusterMapView: GMSMapView {
     private(set) var clusteredMarkers: [markerTuple]
     
     // renderer
-    private var renderer: ZEClusterRenderer!
+    private var renderer: ZEClusterRendererProtocol!
+    
+    // clusterAlgoritm
+    private var algoritm: ZEClusterAlgorimtProtocol!
+    
+    var clusterRadius: CLLocationDistance = 200
     
     required init?(coder aDecoder: NSCoder) {
         clusteredMarkers = [markerTuple]()
@@ -31,16 +33,22 @@ class ZEClusterMapView: GMSMapView {
     
     // public methods
     
-    init(frame: CGRect, renderer: ZEClusterRenderer) {
+    convenience init(frame: CGRect, renderer: ZEClusterRendererProtocol) {
+        self.init(frame: frame, renderer: renderer, algoritm: ZEDefaultClusterAlgoritm())
+    }
+    
+    init(frame: CGRect, renderer: ZEClusterRendererProtocol, algoritm: ZEClusterAlgorimtProtocol ) {
         clusteredMarkers = [markerTuple]()
         unclusteredMarkers = [markerTuple]()
         
         super.init(frame: frame)
         self.renderer = renderer
+        self.algoritm = algoritm
     }
     
-    func add(marker: GMSMarker, with tag: String?) {
+    func add(marker: GMSMarker!, with tag: String?) {
         unclusteredMarkers.append((marker, tag))
+        marker.map = self
     }
     
     func cluster() {

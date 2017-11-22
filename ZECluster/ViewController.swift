@@ -20,6 +20,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func createMap() {
+        
+        let mapView = ZEClusterMapView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), renderer: ZETestRenderer())
 
+    }
+    
+
+}
+
+class ZETestRenderer: NSObject, ZEClusterRendererProtocol {
+    
 }
 
