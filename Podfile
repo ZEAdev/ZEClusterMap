@@ -6,5 +6,6 @@ use_frameworks!
 target 'ZECluster' do
 
 pod 'GoogleMaps'
+pod 'SwiftLint'
 
 end

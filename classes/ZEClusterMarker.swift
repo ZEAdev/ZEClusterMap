@@ -13,9 +13,29 @@ class ZEClusterMarker: GMSMarker {
 
     private(set) var markers = [GMSMarker]()
     
+    override var position: CLLocationCoordinate2D {
+        set {}
+        get {
+            var sumLat: CLLocationDegrees = 0
+            var sumLng: CLLocationDegrees = 0
+            
+            markers.forEach {
+                sumLat += $0.position.latitude
+                sumLng += $0.position.longitude
+            }
+            return CLLocationCoordinate2DMake(sumLat/Double(markers.count), sumLng/Double(markers.count))
+        }
+    }
+    
+    // MARK: - collection Methods
+    
     func add(marker: GMSMarker) {
         if !markers.contains(marker) {
-            markers.append(marker)
+            if let marker = marker as? ZEClusterMarker {
+                self.add(markers: marker.markers)
+            } else {
+                markers.append(marker)
+            }
         }
     }
     
@@ -24,12 +44,18 @@ class ZEClusterMarker: GMSMarker {
     }
     
     func remove(marker: GMSMarker) {
-        markers = markers.filter({$0 != marker})
+        if let marker = marker as? ZEClusterMarker {
+            self.remove(markers: marker.markers)
+        } else {
+            markers = markers.filter({$0 != marker})
+        }
     }
     
     func remove(markers: [GMSMarker]) {
         markers.forEach({ self.remove(marker: $0)})
     }
+    
+    // MARK: -
     
     func dispose() {
         markers.removeAll()

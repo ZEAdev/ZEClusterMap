@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3FC1171DD02416D113C4791D /* Pods_ZECluster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36082425F489885A5C1674F /* Pods_ZECluster.framework */; };
+		DB47EE301FC68DCC00403FF1 /* ZEClusterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47EE2F1FC68DCC00403FF1 /* ZEClusterExtensions.swift */; };
+		DB47EE331FC6F08C00403FF1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DB47EE321FC6F08B00403FF1 /* .swiftlint.yml */; };
+		DB47EE351FC6F80000403FF1 /* demoMarkers.json in Resources */ = {isa = PBXBuildFile; fileRef = DB47EE341FC6F80000403FF1 /* demoMarkers.json */; };
 		DBB5FAA01FAA3537003BD030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB5FA9F1FAA3537003BD030 /* AppDelegate.swift */; };
 		DBB5FAA21FAA3537003BD030 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB5FAA11FAA3537003BD030 /* ViewController.swift */; };
 		DBB5FAA51FAA3537003BD030 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB5FAA31FAA3537003BD030 /* Main.storyboard */; };
@@ -23,6 +26,9 @@
 		5B8B1FA175A0F43B2725A496 /* Pods-ZECluster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZECluster.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZECluster/Pods-ZECluster.release.xcconfig"; sourceTree = "<group>"; };
 		981F6B67F1E5FCEE211A8C87 /* Pods-ZECluster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZECluster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZECluster/Pods-ZECluster.debug.xcconfig"; sourceTree = "<group>"; };
 		C36082425F489885A5C1674F /* Pods_ZECluster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZECluster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB47EE2F1FC68DCC00403FF1 /* ZEClusterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZEClusterExtensions.swift; sourceTree = "<group>"; };
+		DB47EE321FC6F08B00403FF1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		DB47EE341FC6F80000403FF1 /* demoMarkers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demoMarkers.json; sourceTree = "<group>"; };
 		DBB5FA9C1FAA3537003BD030 /* ZECluster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZECluster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB5FA9F1FAA3537003BD030 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBB5FAA11FAA3537003BD030 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +74,7 @@
 		DBB5FA931FAA3537003BD030 = {
 			isa = PBXGroup;
 			children = (
+				DB47EE321FC6F08B00403FF1 /* .swiftlint.yml */,
 				DBB5FA9E1FAA3537003BD030 /* ZECluster */,
 				DBB5FA9D1FAA3537003BD030 /* Products */,
 				119207E9513931729F1A9362 /* Pods */,
@@ -93,6 +100,7 @@
 				DBB5FAA61FAA3537003BD030 /* Assets.xcassets */,
 				DBB5FAA81FAA3537003BD030 /* LaunchScreen.storyboard */,
 				DBB5FAAB1FAA3537003BD030 /* Info.plist */,
+				DB47EE341FC6F80000403FF1 /* demoMarkers.json */,
 			);
 			path = ZECluster;
 			sourceTree = "<group>";
@@ -104,6 +112,7 @@
 				DBB5FAB51FAA378C003BD030 /* ZEClusterMarker.swift */,
 				DBB5FAB91FAA3E44003BD030 /* ZEClusterAlgoritm.swift */,
 				DBB5FABB1FAA3F7A003BD030 /* ZEClusterProtocols.swift */,
+				DB47EE2F1FC68DCC00403FF1 /* ZEClusterExtensions.swift */,
 			);
 			path = classes;
 			sourceTree = SOURCE_ROOT;
@@ -121,6 +130,7 @@
 				DBB5FA9A1FAA3537003BD030 /* Resources */,
 				0B4D54B1BBF5B2F3B34BF010 /* [CP] Embed Pods Frameworks */,
 				392AB7CF6196B91F27B7494D /* [CP] Copy Pods Resources */,
+				DB47EE311FC6EDEC00403FF1 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -170,6 +180,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB47EE331FC6F08C00403FF1 /* .swiftlint.yml in Resources */,
+				DB47EE351FC6F80000403FF1 /* demoMarkers.json in Resources */,
 				DBB5FAAA1FAA3537003BD030 /* LaunchScreen.storyboard in Resources */,
 				DBB5FAA71FAA3537003BD030 /* Assets.xcassets in Resources */,
 				DBB5FAA51FAA3537003BD030 /* Main.storyboard in Resources */,
@@ -230,6 +242,20 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DB47EE311FC6EDEC00403FF1 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null; then\n${PODS_ROOT}/SwiftLint/swiftlint\nelse\necho \"error: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nexit 1\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -243,6 +269,7 @@
 				DBB5FABA1FAA3E44003BD030 /* ZEClusterAlgoritm.swift in Sources */,
 				DBB5FAA01FAA3537003BD030 /* AppDelegate.swift in Sources */,
 				DBB5FAB61FAA378C003BD030 /* ZEClusterMarker.swift in Sources */,
+				DB47EE301FC68DCC00403FF1 /* ZEClusterExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,7 +411,7 @@
 				DEVELOPMENT_TEAM = 93A5P733D9;
 				INFOPLIST_FILE = ZECluster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ze.ZECluster;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kb.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -400,7 +427,7 @@
 				DEVELOPMENT_TEAM = 93A5P733D9;
 				INFOPLIST_FILE = ZECluster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ze.ZECluster;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kb.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

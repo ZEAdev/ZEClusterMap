@@ -12,10 +12,10 @@ import GoogleMaps
 class ZEClusterMapView: GMSMapView {
     
     // getter for unclustered markers on the map
-    private(set) var unclusteredMarkers: [markerTuple]
+    private(set) var unclusteredMarkers: [MarkerTuple]
     
     // getter for markers witch is contained in clusters
-    private(set) var clusteredMarkers: [markerTuple]
+    private(set) var clusteredMarkers: [ClusteredMarkerLists]
     
     // renderer
     private var renderer: ZEClusterRendererProtocol!
@@ -23,12 +23,13 @@ class ZEClusterMapView: GMSMapView {
     // clusterAlgoritm
     private var algoritm: ZEClusterAlgorimtProtocol!
     
-    var clusterRadius: CLLocationDistance = 200
+    var clusterRadius: CLLocationDistance = 2000000
     
     required init?(coder aDecoder: NSCoder) {
-        clusteredMarkers = [markerTuple]()
-        unclusteredMarkers = [markerTuple]()
+        clusteredMarkers = [ClusteredMarkerLists]()
+        unclusteredMarkers = [MarkerTuple]()
         super.init(coder: aDecoder)
+        
     }
     
     // public methods
@@ -38,8 +39,8 @@ class ZEClusterMapView: GMSMapView {
     }
     
     init(frame: CGRect, renderer: ZEClusterRendererProtocol, algoritm: ZEClusterAlgorimtProtocol ) {
-        clusteredMarkers = [markerTuple]()
-        unclusteredMarkers = [markerTuple]()
+        clusteredMarkers = [ClusteredMarkerLists]()
+        unclusteredMarkers = [MarkerTuple]()
         
         super.init(frame: frame)
         self.renderer = renderer
@@ -52,7 +53,23 @@ class ZEClusterMapView: GMSMapView {
     }
     
     func cluster() {
+        if let algoritm = algoritm as? ZEDefaultClusterAlgoritm {
+            algoritm.clusteringRadius = clusterRadius
+        }
+        let unclusteredMarkers = self.unclusteredMarkers
+        self.clear()
+        clusteredMarkers = algoritm.cluster(markers: unclusteredMarkers)
         
+        clusteredMarkers.forEach { (tuple) in
+            tuple.markers.forEach({$0.map = self})
+        }
+        self.unclusteredMarkers = unclusteredMarkers
+    }
+    
+    override func clear() {
+        unclusteredMarkers.removeAll()
+        clusteredMarkers.removeAll()
+        super.clear()
     }
     
 }

@@ -7,29 +7,59 @@
 //
 
 import UIKit
+import GoogleMaps
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, GMSMapViewDelegate {
 
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var clusteringRadiusTF: UITextField!
+
+    @IBOutlet weak var marpViewBackground: UIView!
+    var mapView: ZEClusterMapView?
+    
+    var testDataArray = [(lat: CLLocationDegrees, lng: CLLocationDegrees)]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        initTestData()
+        createMap()
+        createMarkers()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func initTestData() {
+        guard let path = Bundle.main.url(forResource: "demoMarkers", withExtension: "json"), let data = try? Data(contentsOf: path) else {return}
+        guard let jsonDict = try? JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] else { return }
+        jsonDict?.forEach({ if let lat = $0["latitude"] as? CLLocationDegrees, let lng = $0["longitude"] as? CLLocationDegrees { testDataArray.append((lat, lng)) } })
     }
 
     func createMap() {
-        
-        let mapView = ZEClusterMapView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), renderer: ZETestRenderer())
-
+        mapView = ZEClusterMapView(frame: self.marpViewBackground.frame, renderer: ZETestRenderer())
+        mapView?.delegate = self
+        mapView?.isMyLocationEnabled = true
+    
+        if let mapView = mapView {
+            self.marpViewBackground.addSubview(mapView)
+        }
     }
     
+    func createMarkers() {
+        testDataArray.forEach({ GMSMarker(position: CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lng)).map = self.mapView })
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        let marker = GMSMarker(position: coordinate)
+        self.mapView?.add(marker: marker, with: "common")
+    }
+    
+    @IBAction func clusterButtonTapped(_ sender: Any) {
+        mapView?.cluster()
+    }
+    @IBAction func clearButtonTapped(_ sender: Any) {
+        mapView?.clear()
+    }
 
 }
 
 class ZETestRenderer: NSObject, ZEClusterRendererProtocol {
     
 }
-

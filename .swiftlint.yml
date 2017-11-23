@@ -1,0 +1,27 @@
+disabled_rules:
+  - trailing_whitespace
+
+enabled_rules:
+  - explicit_init
+  - empty_count
+  - notification_center_detachment
+
+excluded:
+  - Pods
+  - Static libraries
+
+line_length: 250
+
+identifier_name:
+  min_length:
+    error: 0
+    warning: 0
+
+function_parameter_count:
+  warning: 6
+
+type_body_length:
+    warning: 250
+
+cyclomatic_complexity:
+  ignores_case_statements: true
