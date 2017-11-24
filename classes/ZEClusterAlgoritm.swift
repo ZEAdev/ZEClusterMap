@@ -10,59 +10,52 @@ import CoreLocation
 import GoogleMaps
 
 class ZEDefaultClusterAlgoritm: NSObject, ZEClusterAlgorimtProtocol {
-    
-    var clusteringRadius: CLLocationDistance = 0
-    
-    convenience init(clusteringRadius: CLLocationDistance) {
-        self.init()
-        self.clusteringRadius = clusteringRadius
-    }
-    
-    func cluster(markers: [MarkerTuple]) -> [ClusteredMarkerLists] {
+    func cluster(markers: [MarkerTuple], on map: ZEClusterMapView?, completion: @escaping ([ClusteredMarkerLists]?) -> Void) {
+        
+        guard let map = map else {
+            completion(nil)
+            return
+        }
+        
         var separateMarkerGroups = [ClusteredMarkerLists]()
         
-        // markers into groups
-        markers.forEach { (markerInfo) in
-            if let idx = separateMarkerGroups.index(where: {$0.tag == markerInfo.tag}) {
-                separateMarkerGroups[idx].markers.append(markerInfo.marker)
-            } else {
-                separateMarkerGroups.append(([markerInfo.marker], markerInfo.tag))
+        var markersToCluster = markers
+        if map.clusterSettings.clusterOnlyVisibleMarkers == true {
+            markersToCluster = markers.filter({map.projection.contains($0.marker.position)})
+        }
+        
+        DispatchQueue.global(qos: .background).async {
+            markersToCluster.forEach { (markerInfo) in
+                if let idx = separateMarkerGroups.index(where: {$0.tag == markerInfo.tag}) {
+                    separateMarkerGroups[idx].markers.append(markerInfo.marker)
+                } else {
+                    separateMarkerGroups.append(([markerInfo.marker], markerInfo.tag))
+                }
+            }
+            
+            separateMarkerGroups = separateMarkerGroups.map({ return (self.clusteringRound(markers: $0.markers, radius: map.visibleRegionScale * map.clusterSettings.clusterScale, minPerCluster: map.clusterSettings.minimumMarkersInCluster), $0.tag)})
+            DispatchQueue.main.async {
+                completion(separateMarkerGroups)
             }
         }
-        separateMarkerGroups = separateMarkerGroups.map({ return (self.clusteringRound(markers: $0.markers), $0.tag)})
-        
-        return separateMarkerGroups
     }
     
-    func clusteringRound(markers: [GMSMarker]) -> [GMSMarker] {
+    func clusteringRound(markers: [GMSMarker], radius: CLLocationDistance, minPerCluster: Int) -> [GMSMarker] {
         var clusteredMarkersArray = markers
-        guard var leftMarker = markers.first else {return markers}
         
-        var idx = 0
-        while idx < markers.count {
-            let rightMarker = markers[idx]
-            idx += 1
-            
-            if leftMarker == rightMarker {
-                continue
-            }
-            
-            if leftMarker.distanceTo(marker: rightMarker) < clusteringRadius {
-                let newClusterMarker = ZEClusterMarker()
-                newClusterMarker.add(markers: [leftMarker, rightMarker])
-                
-                if let idxLeft = clusteredMarkersArray.index(of: leftMarker) {clusteredMarkersArray.remove(at: idxLeft)}
-                if let idxRight = clusteredMarkersArray.index(of: rightMarker) {
-                    clusteredMarkersArray.remove(at: idxRight)
-                    clusteredMarkersArray.insert(newClusterMarker, at: idxRight)
+        markers.forEach { (marker) in
+            if clusteredMarkersArray.index(of: marker) != nil {
+               let markersInCluster = clusteredMarkersArray.filter({ return marker.distanceTo(marker: $0) < radius })
+                if markersInCluster.count >= minPerCluster {
+                    let newClusterMarker = ZEClusterMarker()
+                    newClusterMarker.add(markers: markersInCluster)
+                    
+                    clusteredMarkersArray = clusteredMarkersArray.filter({ return markersInCluster.contains($0) == false })
+                    clusteredMarkersArray.append(newClusterMarker)
                 }
-                
-                leftMarker = newClusterMarker
-            } else {
-                leftMarker = rightMarker
             }
         }
-
+        
         return clusteredMarkersArray
 
     }

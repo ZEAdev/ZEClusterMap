@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FC1171DD02416D113C4791D /* Pods_ZECluster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36082425F489885A5C1674F /* Pods_ZECluster.framework */; };
+		DB44779E1FC82509008A9482 /* ZEClusterSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44779D1FC82509008A9482 /* ZEClusterSettings.swift */; };
 		DB47EE301FC68DCC00403FF1 /* ZEClusterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47EE2F1FC68DCC00403FF1 /* ZEClusterExtensions.swift */; };
 		DB47EE331FC6F08C00403FF1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DB47EE321FC6F08B00403FF1 /* .swiftlint.yml */; };
 		DB47EE351FC6F80000403FF1 /* demoMarkers.json in Resources */ = {isa = PBXBuildFile; fileRef = DB47EE341FC6F80000403FF1 /* demoMarkers.json */; };
@@ -26,6 +27,7 @@
 		5B8B1FA175A0F43B2725A496 /* Pods-ZECluster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZECluster.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZECluster/Pods-ZECluster.release.xcconfig"; sourceTree = "<group>"; };
 		981F6B67F1E5FCEE211A8C87 /* Pods-ZECluster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZECluster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZECluster/Pods-ZECluster.debug.xcconfig"; sourceTree = "<group>"; };
 		C36082425F489885A5C1674F /* Pods_ZECluster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZECluster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB44779D1FC82509008A9482 /* ZEClusterSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZEClusterSettings.swift; sourceTree = "<group>"; };
 		DB47EE2F1FC68DCC00403FF1 /* ZEClusterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZEClusterExtensions.swift; sourceTree = "<group>"; };
 		DB47EE321FC6F08B00403FF1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		DB47EE341FC6F80000403FF1 /* demoMarkers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demoMarkers.json; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				DBB5FAB91FAA3E44003BD030 /* ZEClusterAlgoritm.swift */,
 				DBB5FABB1FAA3F7A003BD030 /* ZEClusterProtocols.swift */,
 				DB47EE2F1FC68DCC00403FF1 /* ZEClusterExtensions.swift */,
+				DB44779D1FC82509008A9482 /* ZEClusterSettings.swift */,
 			);
 			path = classes;
 			sourceTree = SOURCE_ROOT;
@@ -267,6 +270,7 @@
 				DBB5FAA21FAA3537003BD030 /* ViewController.swift in Sources */,
 				DBB5FAB41FAA3730003BD030 /* ZEClusterMapView.swift in Sources */,
 				DBB5FABA1FAA3E44003BD030 /* ZEClusterAlgoritm.swift in Sources */,
+				DB44779E1FC82509008A9482 /* ZEClusterSettings.swift in Sources */,
 				DBB5FAA01FAA3537003BD030 /* AppDelegate.swift in Sources */,
 				DBB5FAB61FAA378C003BD030 /* ZEClusterMarker.swift in Sources */,
 				DB47EE301FC68DCC00403FF1 /* ZEClusterExtensions.swift in Sources */,

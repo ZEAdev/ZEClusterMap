@@ -13,23 +13,26 @@ class ZEClusterMapView: GMSMapView {
     
     // getter for unclustered markers on the map
     private(set) var unclusteredMarkers: [MarkerTuple]
-    
-    // getter for markers witch is contained in clusters
-    private(set) var clusteredMarkers: [ClusteredMarkerLists]
-    
+
     // renderer
     private var renderer: ZEClusterRendererProtocol!
     
     // clusterAlgoritm
     private var algoritm: ZEClusterAlgorimtProtocol!
     
-    var clusterRadius: CLLocationDistance = 2000000
+    /*
+    // value from 0 to 1
+    // This property means percent of the map view width, in which default algoritm will make groups of markers.
+    // MapView is 1
+    */
+    var clusterSettings = ZEClusterSettings()
+    
+    // cluster only markers on map
+    var clusterOnlyVisible = false
     
     required init?(coder aDecoder: NSCoder) {
-        clusteredMarkers = [ClusteredMarkerLists]()
         unclusteredMarkers = [MarkerTuple]()
         super.init(coder: aDecoder)
-        
     }
     
     // public methods
@@ -39,7 +42,6 @@ class ZEClusterMapView: GMSMapView {
     }
     
     init(frame: CGRect, renderer: ZEClusterRendererProtocol, algoritm: ZEClusterAlgorimtProtocol ) {
-        clusteredMarkers = [ClusteredMarkerLists]()
         unclusteredMarkers = [MarkerTuple]()
         
         super.init(frame: frame)
@@ -53,22 +55,29 @@ class ZEClusterMapView: GMSMapView {
     }
     
     func cluster() {
-        if let algoritm = algoritm as? ZEDefaultClusterAlgoritm {
-            algoritm.clusteringRadius = clusterRadius
-        }
-        let unclusteredMarkers = self.unclusteredMarkers
-        self.clear()
-        clusteredMarkers = algoritm.cluster(markers: unclusteredMarkers)
+        super.clear()
         
-        clusteredMarkers.forEach { (tuple) in
-            tuple.markers.forEach({$0.map = self})
+        //cluster
+        weak var weakSelf = self
+        algoritm.cluster(markers: unclusteredMarkers, on: weakSelf) { (clusteredMarkersLists) in
+            if let clusteredMarkersLists = clusteredMarkersLists {
+                clusteredMarkersLists.forEach { (tuple) in
+                    tuple.markers.forEach({ (marker) in
+                        if let marker = marker as? ZEClusterMarker {
+                            // render new icon
+                            marker.icon = self.renderer.icon(count: marker.markers.count, tag: tuple.tag)
+                            marker.position = marker.calculatePosition()
+                        }
+                        marker.map = self
+                    })
+                }
+            }
         }
-        self.unclusteredMarkers = unclusteredMarkers
+        
     }
     
     override func clear() {
         unclusteredMarkers.removeAll()
-        clusteredMarkers.removeAll()
         super.clear()
     }
     
