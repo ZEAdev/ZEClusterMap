@@ -43,7 +43,7 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         mapView?.delegate = self
         mapView?.isMyLocationEnabled = true
         mapView?.settings.myLocationButton = true
-        mapView?.clusterOnlyVisible = true
+        mapView?.clusterSettings.clusterOnlyVisibleMarkers = true
         
         if let mapView = mapView {
             self.marpViewBackground.addSubview(mapView)

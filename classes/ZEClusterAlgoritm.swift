@@ -33,7 +33,7 @@ class ZEDefaultClusterAlgoritm: NSObject, ZEClusterAlgorimtProtocol {
                 }
             }
             
-            separateMarkerGroups = separateMarkerGroups.map({ return (self.clusteringRound(markers: $0.markers, radius: map.visibleRegionScale * map.clusterSettings.clusterScale, minPerCluster: map.clusterSettings.minimumMarkersInCluster), $0.tag)})
+            separateMarkerGroups = separateMarkerGroups.map({ (self.clusteringRound(markers: $0.markers, radius: map.visibleRegionScale * map.clusterSettings.clusterScale, minPerCluster: map.clusterSettings.minimumMarkersInCluster), $0.tag)})
             DispatchQueue.main.async {
                 completion(separateMarkerGroups)
             }
@@ -45,19 +45,20 @@ class ZEDefaultClusterAlgoritm: NSObject, ZEClusterAlgorimtProtocol {
         
         markers.forEach { (marker) in
             if clusteredMarkersArray.index(of: marker) != nil {
-               let markersInCluster = clusteredMarkersArray.filter({ return marker.distanceTo(marker: $0) < radius })
+               let markersInCluster = clusteredMarkersArray.filter({ marker.distanceTo(marker: $0) < radius })
                 if markersInCluster.count >= minPerCluster {
                     let newClusterMarker = ZEClusterMarker()
                     newClusterMarker.add(markers: markersInCluster)
+                    newClusterMarker.position = newClusterMarker.calculatePosition()
+                    newClusterMarker.appearAnimation = .pop
                     
-                    clusteredMarkersArray = clusteredMarkersArray.filter({ return markersInCluster.contains($0) == false })
+                    clusteredMarkersArray = clusteredMarkersArray.filter({ markersInCluster.contains($0) == false })
                     clusteredMarkersArray.append(newClusterMarker)
                 }
             }
         }
         
         return clusteredMarkersArray
-
     }
     
 }

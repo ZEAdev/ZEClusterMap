@@ -13,11 +13,6 @@ class ZEClusterMarker: GMSMarker {
 
     private(set) var markers = [GMSMarker]()
     
-    override var position: CLLocationCoordinate2D {
-        set { super.position = newValue }
-        get { return self.calculatePosition() }
-    }
-    
     // MARK: - collection Methods
     
     func add(marker: GMSMarker) {
@@ -55,6 +50,8 @@ class ZEClusterMarker: GMSMarker {
     func calculatePosition() -> CLLocationCoordinate2D {
         var sumLat: CLLocationDegrees = 0
         var sumLng: CLLocationDegrees = 0
+        
+        if markers.isEmpty == true {return CLLocationCoordinate2D(latitude: 0, longitude: 0)}
         
         markers.forEach {
             sumLat += $0.position.latitude

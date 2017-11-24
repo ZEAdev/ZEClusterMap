@@ -13,6 +13,9 @@ class ZEClusterMapView: GMSMapView {
     
     // getter for unclustered markers on the map
     private(set) var unclusteredMarkers: [MarkerTuple]
+    
+    // getter for unclustered markers on the map
+    private(set) var clusteredMarkers: [ClusteredMarkerLists]
 
     // renderer
     private var renderer: ZEClusterRendererProtocol!
@@ -21,17 +24,13 @@ class ZEClusterMapView: GMSMapView {
     private var algoritm: ZEClusterAlgorimtProtocol!
     
     /*
-    // value from 0 to 1
-    // This property means percent of the map view width, in which default algoritm will make groups of markers.
-    // MapView is 1
+    // struct containing settings
     */
     var clusterSettings = ZEClusterSettings()
     
-    // cluster only markers on map
-    var clusterOnlyVisible = false
-    
     required init?(coder aDecoder: NSCoder) {
         unclusteredMarkers = [MarkerTuple]()
+        clusteredMarkers = [ClusteredMarkerLists]()
         super.init(coder: aDecoder)
     }
     
@@ -43,6 +42,7 @@ class ZEClusterMapView: GMSMapView {
     
     init(frame: CGRect, renderer: ZEClusterRendererProtocol, algoritm: ZEClusterAlgorimtProtocol ) {
         unclusteredMarkers = [MarkerTuple]()
+        clusteredMarkers = [ClusteredMarkerLists]()
         
         super.init(frame: frame)
         self.renderer = renderer
@@ -55,12 +55,10 @@ class ZEClusterMapView: GMSMapView {
     }
     
     func cluster() {
-        super.clear()
-        
-        //cluster
         weak var weakSelf = self
         algoritm.cluster(markers: unclusteredMarkers, on: weakSelf) { (clusteredMarkersLists) in
             if let clusteredMarkersLists = clusteredMarkersLists {
+                super.clear()
                 clusteredMarkersLists.forEach { (tuple) in
                     tuple.markers.forEach({ (marker) in
                         if let marker = marker as? ZEClusterMarker {
@@ -71,6 +69,7 @@ class ZEClusterMapView: GMSMapView {
                         marker.map = self
                     })
                 }
+                self.clusteredMarkers = clusteredMarkersLists
             }
         }
         
@@ -78,6 +77,7 @@ class ZEClusterMapView: GMSMapView {
     
     override func clear() {
         unclusteredMarkers.removeAll()
+        clusteredMarkers.removeAll()
         super.clear()
     }
     
